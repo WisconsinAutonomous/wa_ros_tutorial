@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  ros2-tutorial:
+    hostname: 'ros2-tutorial'
+    build:
+      context: ./docker/
+      dockerfile: ros2_tutorial.dockerfile
+      network: host
+      args:
+        USERSHELL: zsh
+    volumes:
+      - ./ros2_tutorial:/root/dev_ws
+    working_dir: /root/
+    tty: true
+    environment:
+      DISPLAY: "novnc:0.0"
+    networks:
+      - x11
+  novnc:  
+    hostname: 'novnc'
+    image: theasp/novnc:latest
+    environment:
+      DISPLAY_WIDTH: 5000
+      DISPLAY_HEIGHT: 5000
+      RUN_XTERM: "no"
+      RUN_FLUXBOX: "yes"
+    ports:
+      - "8080:8080"
+    networks:
+      - x11
+networks:
+  x11:

@@ -12,7 +12,7 @@ Please read through this entire document before getting started. It has critical
   - [Entering the Container](#entering-the-container)
   - [Stopping the Containers](#stopping-the-containers)
 - [ROS Tutorial](#ros-tutorial)
-	- [Visualizing GUI Apps](visualizing-gui-apps)
+	- [Visualizing GUI Apps](#visualizing-gui-apps)
 - [Known Issues](#known-issues)
 	- [Browser Window View](#browser-window-view)
 	- [Missing Icons](#missing-icons)

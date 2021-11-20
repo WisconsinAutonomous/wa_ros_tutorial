@@ -4,6 +4,19 @@ This repository is meant to help members learn ROS in an easy to setup way. It's
 
 Please read through this entire document before getting started. It has critical background information and reading first will streamline the setup process.
 
+## Table of Contents
+
+- [Background](#background)
+- [Installation](#installation)
+  - [Starting the Containers](#starting-the-containers)
+  - [Entering the Container](#entering-the-container)
+  - [Stopping the Containers](#stopping-the-containers)
+- [ROS Tutorial](#ros-tutorial)
+	- [Visualizing GUI Apps](visualizing-gui-apps)
+- [Known Issues](#known-issues)
+	- [Browser Window View](#browser-window-view)
+	- [Missing Icons](#missing-icons)
+
 ## Background
 
 The Robot Operating System or [ROS](https://www.ros.org/) (pronounced as it appears; as in, not R-O-S separately). It is essentially a way to organize code to be used for robotic systems. Wisconsin Autonomous (WA) uses it in this way, where our code is grouped into manageable pieces within ROS' framework.
@@ -50,7 +63,7 @@ This command can be run in as many terminal windows as you'd like. For the ROS t
 
 As you'll see if you simply run `ls` in the terminal window, there will be a folder at `/root/dev_ws`. This is meant to be there. This is because Docker, by default, will be completely isolated from the host system. If you were to exit your container without using something called `volumes`, _none_ of your code will be saved. This wouldn't be ideal because you'd have to run through the tutorial all over again. As a result, the `dev_ws` was setup to be a `volume`. Docker volumes are simply folders and files that are both accessible from within the container and one the host system. To read more about volumes, please see [Docker's website](https://docs.docker.com/storage/volumes/). With all that being said, make sure you do all your work in the `dev_ws` folder. You should not need to do anything with the folder name or location, as the tutorials use this folder location by default.
 
-### Stopping the Container
+### Stopping the Containers
 
 It is not really necessary to stop the container, but if you'd like to free up resources, you can stop the container with the following command:
 
@@ -64,7 +77,7 @@ ROS is released with multiple distributions. The one we use in WA is `foxy`. The
 
 The Docker environment we've set up will allow you to run both ROS on the command line and visualize GUI (window-based) applications. Anything involving `turtlesim` or `rqt` in the ROS tutorials will require GUI access.
 
-### Visualizing GUI environments
+### Visualizing GUI Apps 
 
 In the [Installation](#installation) section, we built multiple Docker images that we will use here. To be exact, we built two: one for ROS and one for visualizing GUIs. When you run `docker-compose up`, both are automatically spun up. When you do `docker-compose exec ros2-tutorial`, you're entering the ROS docker. Then, when you use GUI applications like `turtlesim` or `rqt`, the other container will be used in conjunction with your browser.
 
@@ -76,7 +89,7 @@ When you need GUI applications, and you've started them in the docker container 
 
 noVNC, which is what we use for visualizing GUI windows in the browser, has no good way of _automatically_ grabbing the monitor size. As a result, the display size for noVNC is set to 5000x5000, which is over what most monitors have. As a result, it is possible windows are created partially outside the view of the browser. It has only been seen that it is _partially_ outside of view, so you should be able to drag the window to be in view.
 
-### Missing Emoticons
+### Missing Icons 
 
-It has been observed that some emoticons/icons are not available in noVNC. There for, some buttons, especially `rqt`, will have buttons with no text or images inside. Please refer to the screenshots in the ROS tutorial to see what they should be.
+It has been observed that some icons are not available in noVNC. There for, some buttons, especially `rqt`, will have buttons with no text or images inside. Please refer to the screenshots in the ROS tutorial to see what they should be.
 

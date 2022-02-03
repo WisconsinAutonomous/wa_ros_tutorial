@@ -5,9 +5,6 @@ LABEL maintainer="Wisconsin Autonomous <wisconsinautonomous@studentorg.wisc.edu"
 ARG DEBIAN_FRONTEND=noninteractive
 ARG ROSDISTRO=foxy
 
-# Use mirrors instead of main server
-RUN sed -i 's|deb http://.*ubuntu.com.* \(focal.*\)|deb mirror://mirrors.ubuntu.com/mirrors.txt \1|g' /etc/apt/sources.list
-
 # Check for updates
 RUN apt update && apt upgrade -y && apt install -y expect
 

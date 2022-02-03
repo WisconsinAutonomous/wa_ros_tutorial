@@ -16,6 +16,21 @@ services:
       DISPLAY: "novnc:0.0"
     networks:
       - x11
+  wasim:
+    hostname: 'wasim'
+    build:
+      context: ./docker/
+      dockerfile: ros2_tutorial.dockerfile
+      network: host
+      args:
+        USERSHELL: zsh
+    volumes:
+      - ./ros2_tutorial:/root/dev_ws
+    working_dir: /root/
+    tty: true
+    network_mode: host
+    environment:
+      DISPLAY: "novnc:0.0"
   novnc:  
     hostname: 'novnc'
     image: theasp/novnc:latest
